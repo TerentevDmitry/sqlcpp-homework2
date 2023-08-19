@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS genres_List (
+	id_Genres_List SERIAL PRIMARY key,	
+	genre_Name VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS performers_List (
+	id_Performers_List SERIAL PRIMARY key,	
+	performer_Name VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Album_List (
+	id_Album_List SERIAL PRIMARY key,	
+	album_Name VARCHAR(40) NOT null,
+	album_Release_Year VARCHAR(4) NOT null
+);
+
+CREATE TABLE IF NOT EXISTS track_List (
+	id_Track_List SERIAL PRIMARY key,	
+	track_Name VARCHAR(40) NOT null,
+	duration_Track TIME NOT null,
+	id_Album_List INTEGER NOT NULL references album_List(id_Album_List)
+);
+
+CREATE TABLE IF NOT EXISTS broker_Genres_Performers (
+	id_Genres_List INTEGER NOT NULL references genres_List(id_Genres_List),
+	id_Performers_List INTEGER NOT NULL references performers_List(id_Performers_List)
+);
+
+CREATE TABLE IF NOT EXISTS broker_Performers_Album (
+	id_Album_List INTEGER NOT NULL references album_List(id_Album_List),
+	id_Performers_List INTEGER NOT NULL references performers_List(id_Performers_List)
+);
