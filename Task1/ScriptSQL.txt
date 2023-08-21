@@ -41,5 +41,5 @@ CREATE TABLE IF NOT EXISTS collections_list (
 
 CREATE TABLE IF NOT EXISTS broker_album_track (
 	id_album_list INTEGER NOT NULL references album_list(id_album_list),
-	id_performers_list INTEGER NOT NULL references performers_list(id_performers_list)
+	id_track_list INTEGER NOT NULL references track_list(id_track_list)
 );
