@@ -1,27 +1,8 @@
-
 --task_2_2
 CREATE TABLE IF NOT EXISTS employee_list (
 	id_employee_list SERIAL PRIMARY KEY,	
-	employee_name VARCHAR(40) NOT NULL
+	employee_name VARCHAR(40) NOT null,
+	department_name VARCHAR(40) NOT null,
+	chief_name VARCHAR(40),
+	id_chief INTEGER references employee_list(id_employee_list)
 );
-
-CREATE TABLE IF NOT EXISTS department_list (
-	id_department_list SERIAL PRIMARY KEY,	
-	department_name VARCHAR(40) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS chief_list (
-	id_chief_list SERIAL PRIMARY KEY,	
-	chief_name VARCHAR(40) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS summary_data (
-	id_summary_data INTEGER NOT NULL,
-	id_employee_list INTEGER NOT NULL references employee_list(id_employee_list),
-	id_department_list INTEGER NOT NULL references department_list(id_department_list),
-	id_chief_list INTEGER NOT NULL references chief_list(id_chief_list)
-);
-
-
-
-
